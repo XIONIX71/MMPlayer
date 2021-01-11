@@ -26,16 +26,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLenghtSpend: UILabel!
     @IBOutlet weak var progressTimer: UILabel!
     @IBOutlet weak var progressSongSlider: UISlider!
-    @IBOutlet weak var playerProgressSlieder: UISlider!
+    //@IBOutlet weak var playerProgressSlieder: UISlider!
     
-    @IBOutlet weak var songNameLabel: UILabel!
-    
-    @IBOutlet weak var progressTimerLabel: UILabel!
     var isRunning = false
     
     @IBAction func startMusic(_ sender: Any) {
         if !isRunning{
             playButton.setImage(UIImage(named: "play"), for: .normal)
+            
             
             isRunning = true
         }

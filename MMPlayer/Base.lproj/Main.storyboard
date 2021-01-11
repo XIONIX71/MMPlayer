@@ -22,7 +22,10 @@
                                     <constraint firstAttribute="width" constant="150" id="SZr-mB-znq"/>
                                     <constraint firstAttribute="height" constant="150" id="dTq-Qx-fA1"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-01_6644788"/>
+                                <state key="normal" title="Button" image="play"/>
+                                <connections>
+                                    <action selector="startMusic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nvY-Ut-WRC"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="djg-5v-cRr" userLabel="Progress song slider">
                                 <rect key="frame" x="28" y="575.5" width="358" height="31"/>
@@ -33,7 +36,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Khk-9S-7li"/>
                                     <constraint firstAttribute="width" constant="50" id="yxM-VT-XA8"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-17_6644781-2"/>
+                                <state key="normal" title="Button" image="repeat"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-vv-BIS" userLabel="Artist Name">
                                 <rect key="frame" x="20" y="64" width="374" height="45"/>
@@ -60,7 +63,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0J-r2-Vd5" userLabel="Button list">
                                 <rect key="frame" x="322" y="790" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-19_6644777"/>
+                                <state key="normal" title="Button" image="playlist"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHp-pV-otM" userLabel="Album Name">
                                 <rect key="frame" x="20" y="454.5" width="374" height="21"/>
@@ -86,7 +89,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Z3r-lZ-7AT"/>
                                     <constraint firstAttribute="width" constant="50" id="ihM-Af-xhO"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-18_6644767"/>
+                                <state key="normal" title="Button" image="shuffle"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNg-B4-n64" userLabel="Button Next">
                                 <rect key="frame" x="309" y="690" width="75" height="75"/>
@@ -94,7 +97,7 @@
                                     <constraint firstAttribute="width" constant="75" id="n8r-kF-jDv"/>
                                     <constraint firstAttribute="height" constant="75" id="wOT-Os-qYI"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-08_6644780"/>
+                                <state key="normal" title="Button" image="next"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpE-xx-eYJ" userLabel="Button Previous">
                                 <rect key="frame" x="30" y="690" width="75" height="75"/>
@@ -102,7 +105,7 @@
                                     <constraint firstAttribute="height" constant="75" id="hsn-Wa-9fp"/>
                                     <constraint firstAttribute="width" constant="75" id="xwe-F7-dPm"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="iconfinder_Multimedia_-07_6644782"/>
+                                <state key="normal" title="Button" image="previous"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -138,6 +141,21 @@
                             <constraint firstItem="BNp-Qb-jhf" firstAttribute="top" secondItem="djg-5v-cRr" secondAttribute="bottom" constant="46.5" id="xpr-4o-bhe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumName" destination="SHp-pV-otM" id="oCe-su-BJp"/>
+                        <outlet property="artistName" destination="gsd-vv-BIS" id="gCw-CC-Ck9"/>
+                        <outlet property="coverImage" destination="cen-AH-Chf" id="gvg-1V-ayr"/>
+                        <outlet property="nextButton" destination="WNg-B4-n64" id="Y4n-F7-bg4"/>
+                        <outlet property="playButton" destination="BNp-Qb-jhf" id="OUI-z0-sVc"/>
+                        <outlet property="playlistButton" destination="L0J-r2-Vd5" id="vBr-h3-LHZ"/>
+                        <outlet property="previousButton" destination="fpE-xx-eYJ" id="Qcv-rB-Bkm"/>
+                        <outlet property="progressSongSlider" destination="djg-5v-cRr" id="oT0-fk-8AA"/>
+                        <outlet property="progressTimer" destination="v7G-HE-ghJ" id="NkV-qe-yvl"/>
+                        <outlet property="repeatButton" destination="W5F-Xi-ghF" id="0I8-PU-knX"/>
+                        <outlet property="shuffleButton" destination="LP2-Uz-wQS" id="QzW-e8-hQk"/>
+                        <outlet property="songName" destination="uI9-UL-DZr" id="0qZ-Ok-yT1"/>
+                        <outlet property="totalLenghtSpend" destination="NZu-kH-9HD" id="KeS-Wd-oNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,12 +163,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iconfinder_Multimedia_-01_6644788" width="512" height="512"/>
-        <image name="iconfinder_Multimedia_-07_6644782" width="512" height="512"/>
-        <image name="iconfinder_Multimedia_-08_6644780" width="512" height="512"/>
-        <image name="iconfinder_Multimedia_-17_6644781-2" width="512" height="512"/>
-        <image name="iconfinder_Multimedia_-18_6644767" width="512" height="512"/>
-        <image name="iconfinder_Multimedia_-19_6644777" width="512" height="512"/>
+        <image name="next" width="512" height="512"/>
+        <image name="play" width="512" height="512"/>
+        <image name="playlist" width="512" height="512"/>
+        <image name="previous" width="512" height="512"/>
+        <image name="repeat" width="512" height="512"/>
+        <image name="shuffle" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
