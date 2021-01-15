@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     var currentAudioIndex = 0
     var currentAudio = ""
     var currentAudioPath:URL!
-    var effectToggle = true
     var isTableViewOnscreen = false
     var shuffleState = false
     var repeatState = false
@@ -84,6 +83,16 @@ class ViewController: UIViewController {
         totalLenghtSpend.isHidden = false
         progressTimer.isHidden = false
         progressSongSlider.isHidden = false
+
+        super.viewDidLoad()
+        
+       //Fonction à coder plus tard pour les parametrage de la lecture audio mais aussi pour regler le numero du son en cours
+        // retrieveSavedTrackNumber()
+        // prepareAudio()
+        // updateLabels()
+        // assingSliderUI()
+        // setRepeatAndShuffle()
+        // retrievePlayerProgressSliderValue()
     }
 
 
@@ -135,10 +144,9 @@ class ViewController: UIViewController {
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        animateTableViewToOffScreen()
+        
         currentAudioIndex = (indexPath as NSIndexPath).row
-        prepareAudio()
-        playAudio()
+        
         effectToggle = !effectToggle
         let showList = UIImage(named: "list")
         let removeList = UIImage(named: "listS")
@@ -147,7 +155,11 @@ class ViewController: UIViewController {
         let pause = UIImage(named: "pause")
         playButton.setImage(audioPlayer.isPlaying ? pause : play, for: UIControl.State())
         
-        blurView.isHidden = true
+        //à implémenter
+        //blurView.isHidden = true
+        //animateTableViewToOffScreen() 
+        // prepareAudio()
+        // playAudio()
 
     }
     
@@ -162,18 +174,6 @@ class ViewController: UIViewController {
         }else{
             return false
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-       //Fonction à coder plus tard pour les parametrage de la lecture audio mais aussi pour regler le numero du son en cours
-        retrieveSavedTrackNumber()
-        prepareAudio()
-        updateLabels()
-        assingSliderUI()
-        setRepeatAndShuffle()
-        retrievePlayerProgressSliderValue()
     }
 
     
@@ -195,18 +195,18 @@ class ViewController: UIViewController {
     }
     
     
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableViewContainerTopConstrain.constant = 1000.0
-        self.tableViewContainer.layoutIfNeeded()
-        blurView.isHidden = true
-    }
+    // Á garder pour plus tard
+    // override func viewWillAppear(_ animated: Bool) {
+    //     super.viewWillAppear(animated)
+    //     self.tableViewContainerTopConstrain.constant = 1000.0
+    //     self.tableViewContainer.layoutIfNeeded()
+    //     blurView.isHidden = true
+    // }
     
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        albumArtworkImageView.setRounded()
+        coverImage.setRounded()
     }
     
     override func didReceiveMemoryWarning() {
