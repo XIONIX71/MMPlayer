@@ -74,7 +74,53 @@ class ViewController: UIViewController {
         progressTimer.isHidden = false
         progressSongSlider.isHidden = false
     }
+
+
+    //MARK:- UITableView : Montre le nom artist et song
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return audioList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        var songNameDict = NSDictionary();
+        songNameDict = audioList.object(at: (indexPath as NSIndexPath).row) as! NSDictionary
+        let songName = songNameDict.value(forKey: "songName") as! String
+        
+        var albumNameDict = NSDictionary();
+        albumNameDict = audioList.object(at: (indexPath as NSIndexPath).row) as! NSDictionary
+        let albumName = albumNameDict.value(forKey: "albumName") as! String
+        
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
+        cell.textLabel?.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 25.0)
+        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel?.text = songName
+        
+        cell.detailTextLabel?.font = UIFont(name: "BodoniSvtyTwoITCTT-Book", size: 16.0)
+        cell.detailTextLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.text = albumName
+        return cell
+    }
+    //retourne sous forme de tableau le nom de la musique l'artiste....
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54.0
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView,willDisplay cell: UITableViewCell,forRowAt indexPath: IndexPath){
+        tableView.backgroundColor = UIColor.clear
+        
+        let backgroundView = UIView(frame: CGRect.zero)
+        backgroundView.backgroundColor = UIColor.clear
+        cell.backgroundView = backgroundView
+        cell.backgroundColor = UIColor.clear
+    }
+
     
     
     
