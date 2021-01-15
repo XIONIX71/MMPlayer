@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        playButton.isEnabled = true
+        /*playButton.isEnabled = true
         playButton.isHidden = false
         
         nextButton.isEnabled = true
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         artistName.isHidden = false
         totalLenghtSpend.isHidden = false
         progressTimer.isHidden = false
-        progressSongSlider.isHidden = false
+        progressSongSlider.isHidden = false*/
     }
     
     
