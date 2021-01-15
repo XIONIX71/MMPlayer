@@ -11,6 +11,18 @@ import MediaPlayer
 
 
 class ViewController: UIViewController {
+
+    var audioList:NSArray!
+    var effectToggle = true
+    var audioPlayer:AVAudioPlayer! = nil
+    var currentAudioIndex = 0
+    var currentAudio = ""
+    var currentAudioPath:URL!
+    var effectToggle = true
+    var isTableViewOnscreen = false
+    var shuffleState = false
+    var repeatState = false
+    var shuffleArray = [Int]()
     
     
     @IBOutlet weak var playButton: UIButton!
@@ -26,7 +38,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLenghtSpend: UILabel!
     @IBOutlet weak var progressTimer: UILabel!
     @IBOutlet weak var progressSongSlider: UISlider!
-    //@IBOutlet weak var playerProgressSlieder: UISlider!
     
     var isRunning = false
     
@@ -121,7 +132,87 @@ class ViewController: UIViewController {
         cell.backgroundColor = UIColor.clear
     }
 
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        animateTableViewToOffScreen()
+        currentAudioIndex = (indexPath as NSIndexPath).row
+        prepareAudio()
+        playAudio()
+        effectToggle = !effectToggle
+        let showList = UIImage(named: "list")
+        let removeList = UIImage(named: "listS")
+        playlistButton.setImage(effectToggle ? showList : removeList, for: UIControl.State())
+        let play = UIImage(named: "play")
+        let pause = UIImage(named: "pause")
+        playButton.setImage(audioPlayer.isPlaying ? pause : play, for: UIControl.State())
+        
+        blurView.isHidden = true
+
+    }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.default
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        
+        if isTableViewOnscreen{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+       //Fonction à coder plus tard pour les parametrage de la lecture audio mais aussi pour regler le numero du son en cours
+        retrieveSavedTrackNumber()
+        prepareAudio()
+        updateLabels()
+        assingSliderUI()
+        setRepeatAndShuffle()
+        retrievePlayerProgressSliderValue()
+    }
+
+    
+    func setRepeatAndShuffle(){
+        shuffleState = UserDefaults.standard.bool(forKey: "shuffleState")
+        repeatState = UserDefaults.standard.bool(forKey: "repeatState")
+        if shuffleState == true {
+            shuffleButton.isSelected = true
+        } else {
+            shuffleButton.isSelected = false
+        }
+        
+        if repeatState == true {
+            repeatButton.isSelected = true
+        }else{
+            repeatButton.isSelected = false
+        }
+    
+    }
+    
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableViewContainerTopConstrain.constant = 1000.0
+        self.tableViewContainer.layoutIfNeeded()
+        blurView.isHidden = true
+    }
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        albumArtworkImageView.setRounded()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     
  
