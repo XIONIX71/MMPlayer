@@ -10,7 +10,7 @@ import AVFoundation
 import MediaPlayer
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSource,AVAudioPlayerDelegate {
 
     var audioList:NSArray!
     var effectToggle = true
@@ -115,11 +115,9 @@ class ViewController: UIViewController {
         let albumName = albumNameDict.value(forKey: "albumName") as! String
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 25.0)
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = songName
         
-        cell.detailTextLabel?.font = UIFont(name: "BodoniSvtyTwoITCTT-Book", size: 16.0)
         cell.detailTextLabel?.textColor = UIColor.white
         cell.detailTextLabel?.text = albumName
         return cell
