@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var isRunning = false
     
     
-    @IBAction func play(_ sender: Any) {
+    @IBAction func playSong(_ sender: Any) {
         
         let play = UIImage(named: "play")
         let pause = UIImage(named:"pause")
@@ -61,6 +61,17 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         playButton.setImage(audioPlayer.isPlaying ? pause: play, for:UIControl.State())
     }
+    
+    @IBAction func nextSong(_ sender: Any) {
+        playNextAudio()
+    }
+    
+    
+    @IBAction func previousSong(_ sender: Any) {
+        playPreviousAudio()
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

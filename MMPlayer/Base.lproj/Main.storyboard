@@ -24,7 +24,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="play"/>
                                 <connections>
-                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HIU-SL-bEs"/>
+                                    <action selector="playSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lhG-aR-0hM"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="djg-5v-cRr" userLabel="Progress song slider">
@@ -77,6 +77,9 @@
                                     <constraint firstAttribute="width" constant="50" id="gh6-Us-Kc2"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="previous"/>
+                                <connections>
+                                    <action selector="previousSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Be-eo-eCw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNg-B4-n64" userLabel="Button Next">
                                 <rect key="frame" x="308" y="618" width="50" height="50"/>
@@ -85,6 +88,9 @@
                                     <constraint firstAttribute="width" constant="50" id="ngQ-d7-SET"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="next"/>
+                                <connections>
+                                    <action selector="nextSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pNv-5T-Bp7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LP2-Uz-wQS" userLabel="Button Shuffle">
                                 <rect key="frame" x="20" y="366" width="50" height="50"/>
@@ -113,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHp-pV-otM" userLabel="Album Name">
-                                <rect key="frame" x="233.66666666666663" y="414" width="41.333333333333343" height="20"/>
+                                <rect key="frame" x="233.66666666666666" y="414" width="41.333333333333343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="83D-1q-1tH"/>
                                 </constraints>
