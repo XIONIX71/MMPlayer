@@ -303,7 +303,73 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         progressTimer.text = "00:00"        
     }
 
-   
+    func  playAudio(){
+        audioPlayer.play()
+        startTimer()
+        updateLabels()
+        saveCurrentTrackNumber()
+        showMediaInfo()
+    }
+    
+    func playNextAudio(){
+        currentAudioIndex += 1
+        if currentAudioIndex>audioList.count-1{
+            currentAudioIndex -= 1
+            
+            return
+        }
+        if audioPlayer.isPlaying{
+            prepareAudio()
+            playAudio()
+        }else{
+            prepareAudio()
+        }
+        
+    }
+
+    func playPreviousAudio(){
+        currentAudioIndex -= 1
+        if currentAudioIndex<0{
+            currentAudioIndex += 1
+            return
+        }
+        if audioPlayer.isPlaying{
+            prepareAudio()
+            playAudio()
+        }else{
+            prepareAudio()
+        }
+        
+    }
+    
+    
+    func stopAudiplayer(){
+        audioPlayer.stop();
+        
+    }
+    
+    func pauseAudioPlayer(){
+        audioPlayer.pause()
+        
+    }
+
+    //MARK:-
+    
+    func startTimer(){
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlayerViewController.update(_:)), userInfo: nil,repeats: true)
+            timer.fire()
+        }
+    }
+    
+    deinit {
+        timer.invalidate()
+    }
+    
+    func stopTimer(){
+        timer.invalidate()
+        
+    }
     
     
  
