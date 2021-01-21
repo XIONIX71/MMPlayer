@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var shuffleState = false
     var repeatState = false
     var shuffleArray = [Int]()
+    var timer:Timer!
     
     
     @IBOutlet weak var playButton: UIButton!
