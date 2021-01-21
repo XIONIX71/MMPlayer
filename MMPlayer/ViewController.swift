@@ -521,8 +521,8 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     func updateCoverImage(){
-        let artworkName = readArtworkNameFromPlist(currentAudioIndex)
-        coverImage.image = UIImage(named: artworkName)
+        let coverImage = readArtworkNameFromPlist(currentAudioIndex)
+        coverImage.image = UIImage(named: coverImage)
     }
 }
 

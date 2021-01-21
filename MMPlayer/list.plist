@@ -9,7 +9,7 @@
 		<string>Daisies</string>
 		<key>songName</key>
 		<string>Daisies</string>
-		<key>albumArtwork</key>
+		<key>coverImage</key>
 		<string>Daisies.jpg</string>
 	</dict>
 	<dict>
@@ -19,7 +19,7 @@
 		<string>Small Talk</string>
 		<key>songName</key>
 		<string>Small Talk</string>
-		<key>albumArtwork</key>
+		<key>coverImage</key>
 		<string>SmallTalk.jpg</string>
 	</dict>
 	<dict>
@@ -29,7 +29,7 @@
 		<string>Smile</string>
 		<key>songName</key>
 		<string>Smile</string>
-		<key>albumArtwork</key>
+		<key>coverImage</key>
 		<string>Smile.jpg</string>
 	</dict>
 </array>
