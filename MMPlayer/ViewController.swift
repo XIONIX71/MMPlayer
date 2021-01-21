@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var shuffleArray = [Int]()
     var timer:Timer!
     var audioLength = 0.0
+    var totalLengthOfAudio = ""
     
     
     @IBOutlet weak var playButton: UIButton!
@@ -39,6 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var totalLenghtSpend: UILabel!
     @IBOutlet weak var progressTimer: UILabel!
     @IBOutlet weak var progressSongSlider: UISlider!
+
     
     var isRunning = false
 
