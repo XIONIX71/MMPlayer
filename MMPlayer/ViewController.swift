@@ -41,6 +41,12 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var progressSongSlider: UISlider!
     
     var isRunning = false
+
+    func showMediaInfo(){
+        let artistName = readArtistNameFromPlist(currentAudioIndex)
+        let songName = readSongNameFromPlist(currentAudioIndex)
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist : artistName,  MPMediaItemPropertyTitle : songName]
+    }
     
     @IBAction func startMusic(_ sender: Any) {
         if !isRunning{
@@ -94,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         updateLabels()
         assingSliderUI()
         setRepeatAndShuffle()
-        retrievePlayerProgressSliderValue()
+        retrieveprogressSongSliderValue()
     }
 
 
@@ -479,7 +485,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }   
     
    
-    func assingSliderUI () {
+    func assingSliderUI() {
         let minImage = UIImage(named: "slider-track-fill")
         let maxImage = UIImage(named: "slider-track")
         let thumb = UIImage(named: "thumb")
@@ -496,9 +502,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         updateArtistNameLabel()
         updateAlbumNameLabel()
         updateSongNameLabel()
-        updateCoverImage()
-
-        
+        updateCoverImage() 
     }
     
     
