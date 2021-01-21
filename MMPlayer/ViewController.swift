@@ -42,18 +42,24 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     var isRunning = false
     
-    @IBAction func startMusic(_ sender: Any) {
-        if !isRunning{
-            playButton.setImage(UIImage(named: "play"), for: .normal)
-            
-            
-            isRunning = true
+    
+    @IBAction func play(_ sender: Any) {
+        
+        let play = UIImage(named: "play")
+        let pause = UIImage(named:"pause")
+        
+        if shuffleState == true{
+            shuffleArray.removeAll()
+        }
+        
+        else if audioPlayer.isPlaying{
+            pauseAudioPlayer()
         }
         else{
-            playButton.setImage(UIImage(named: "pause"), for: .normal)
-            
-            isRunning = false
+            playAudio()
         }
+        
+        playButton.setImage(audioPlayer.isPlaying ? pause: play, for:UIControl.State())
     }
     
     override func viewDidLoad() {
