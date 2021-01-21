@@ -77,6 +77,22 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         audioPlayer.currentTime = TimeInterval(sender.value)
     }
     
+    @IBAction func shuffleButtonTapped(_ sender: UIButton) {
+        shuffleArray.removeAll()
+        
+        if sender.isSelected == true{
+            sender.isSelected = false
+            shuffleState = false
+            
+            UserDefaults.standard.set(false, forKey: "shuffleState")
+        }
+        else{
+            sender.isSelected = true
+            shuffleState = true
+            
+            UserDefaults.standard.set(true, forKey: "shuffleState")
+        }
+    }
     
     
     

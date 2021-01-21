@@ -102,6 +102,9 @@
                                     <constraint firstAttribute="width" constant="50" id="VYp-Hb-gqK"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="shuffle"/>
+                                <connections>
+                                    <action selector="shuffleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SlJ-2U-e21"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-kH-9HD" userLabel="total lenght spend">
                                 <rect key="frame" x="313" y="548" width="42" height="20"/>
