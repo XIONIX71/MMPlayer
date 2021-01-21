@@ -217,35 +217,33 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
                 playButton.setImage( UIImage(named: "play"), for: UIControl.State())
                 return
             
-            } else if shuffleState == false && repeatState == true {
-            //repeat same song
+            } 
+            else if shuffleState == false && repeatState == true {
                 prepareAudio()
                 playAudio()
             
-            } else if shuffleState == true && repeatState == false {
-            //shuffle songs but do not repeat at the end
+            } 
+            else if shuffleState == true && repeatState == false {
             //Shuffle logique, mettre le son courant dans un tableau et le son d'après viendra aleatoirement
                shuffleArray.append(currentAudioIndex)
                 if shuffleArray.count >= audioList.count {
                 playButton.setImage( UIImage(named: "play"), for: UIControl.State())
                 return
-                
-                }
-                
-                
+                }                
                 var randomIndex = 0
                 var newIndex = false
                 while newIndex == false {
                     randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
                     if shuffleArray.contains(randomIndex) {
                         newIndex = false
-                    }else{
+                    }
+                    else{
                         newIndex = true
                     }
                 }
                 currentAudioIndex = randomIndex
-                // prepareAudio()
-                // playAudio()
+                prepareAudio()
+                playAudio()
             
             } else if shuffleState == true && repeatState == true {
                 //shuffle fin
@@ -261,7 +259,8 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
                     randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
                     if shuffleArray.contains(randomIndex) {
                         newIndex = false
-                    }else{
+                    }
+                    else{
                         newIndex = true
                     }
                 }
@@ -291,7 +290,8 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func retrieveSavedTrackNumber(){
         if let currentAudioIndex_ = UserDefaults.standard.object(forKey: "currentAudioIndex") as? Int{
             currentAudioIndex = currentAudioIndex_
-        }else{
+        }
+        else{
             currentAudioIndex = 0
         }
     }
@@ -301,11 +301,13 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         do {
             //garder le lecteur en marche en background
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)))
-        } catch _ {
+        } 
+        catch _ {
         }
         do {
             try AVAudioSession.sharedInstance().setActive(true)
-        } catch _ {
+        } 
+        catch _ {
         }
         UIApplication.shared.beginReceivingRemoteControlEvents()
         audioPlayer = try? AVAudioPlayer(contentsOf: currentAudioPath)
@@ -360,7 +362,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     
-    func stopAudiplayer(){
+    func stopAudioplayer(){
         audioPlayer.stop();
         
     }
