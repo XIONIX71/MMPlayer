@@ -155,7 +155,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         //à implémenter
         //blurView.isHidden = true
-        //animateTableViewToOffScreen() 
+        //animateTableViewToOffScreen()
         // prepareAudio()
         // playAudio()
 
@@ -227,7 +227,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
             
             } else if shuffleState == true && repeatState == false {
             //shuffle songs but do not repeat at the end
-            //Shuffle logique, mettre le son courant dans un tableau et le son d'après viendra aleatoirement 
+            //Shuffle logique, mettre le son courant dans un tableau et le son d'après viendra aleatoirement
                shuffleArray.append(currentAudioIndex)
                 if shuffleArray.count >= audioList.count {
                 playButton.setImage( UIImage(named: "play"), for: UIControl.State())
@@ -321,7 +321,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         audioPlayer.prepareToPlay()
         showTotalSongLength()
         updateLabels()
-        progressTimer.text = "00:00"        
+        progressTimer.text = "00:00"
     }
 
     func  playAudio(){
