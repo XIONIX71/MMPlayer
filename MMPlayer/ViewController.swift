@@ -269,12 +269,33 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
                     }
                 }
                 currentAudioIndex = randomIndex
-                // prepareAudio()
-                // playAudio()
-                
+                prepareAudio()
+                playAudio()
             
             }
             
+        }
+    }
+
+    //Sets audio file URL
+    func setCurrentAudioPath(){
+        currentAudio = readSongNameFromPlist(currentAudioIndex)
+        currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
+        print("\(String(describing: currentAudioPath))")
+    }
+    
+    
+    func saveCurrentTrackNumber(){
+        UserDefaults.standard.set(currentAudioIndex, forKey:"currentAudioIndex")
+        UserDefaults.standard.synchronize()
+        
+    }
+    
+    func retrieveSavedTrackNumber(){
+        if let currentAudioIndex_ = UserDefaults.standard.object(forKey: "currentAudioIndex") as? Int{
+            currentAudioIndex = currentAudioIndex_
+        }else{
+            currentAudioIndex = 0
         }
     }
 
