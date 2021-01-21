@@ -247,11 +247,11 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
                     }
                 }
                 currentAudioIndex = randomIndex
-                prepareAudio()
-                playAudio()
+                // prepareAudio()
+                // playAudio()
             
             } else if shuffleState == true && repeatState == true {
-                //shuffle song endlessly
+                //shuffle fin
                 shuffleArray.append(currentAudioIndex)
                 if shuffleArray.count >= audioList.count {
                     shuffleArray.removeAll()
@@ -269,14 +269,41 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
                     }
                 }
                 currentAudioIndex = randomIndex
-                prepareAudio()
-                playAudio()
+                // prepareAudio()
+                // playAudio()
                 
             
             }
             
         }
     }
+
+    func prepareAudio(){
+        setCurrentAudioPath()
+        do {
+            //garder le lecteur en marche en background
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)))
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+        }
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        audioPlayer = try? AVAudioPlayer(contentsOf: currentAudioPath)
+        audioPlayer.delegate = self
+//        audioPlayer
+        audioLength = audioPlayer.duration
+        progressSongSlider.maximumValue = CFloat(audioPlayer.duration)
+        progressSongSlider.minimumValue = 0.0
+        progressSongSlider.value = 0.0
+        audioPlayer.prepareToPlay()
+        showTotalSongLength()
+        updateLabels()
+        progressTimer.text = "00:00"        
+    }
+
+   
     
     
  
