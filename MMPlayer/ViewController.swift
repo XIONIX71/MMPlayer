@@ -352,8 +352,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         audioPlayer.pause()
         
     }
-
-    //MARK:-
     
     func startTimer(){
         if timer == nil {
