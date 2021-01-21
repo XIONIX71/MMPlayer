@@ -29,6 +29,9 @@
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="djg-5v-cRr" userLabel="Progress song slider">
                                 <rect key="frame" x="28" y="456" width="319" height="113"/>
+                                <connections>
+                                    <action selector="changeSliderLocation:" destination="BYZ-38-t0r" eventType="valueChanged" id="Fay-KY-VSZ"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5F-Xi-ghF" userLabel="Button Repeat">
                                 <rect key="frame" x="305" y="366" width="50" height="50"/>

@@ -72,6 +72,13 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     
+    @IBAction func changeSliderLocation(_ sender: UISlider) {
+        
+        audioPlayer.currentTime = TimeInterval(sender.value)
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
