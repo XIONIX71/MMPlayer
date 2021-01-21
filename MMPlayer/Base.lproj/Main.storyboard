@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MMPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNp-Qb-jhf" userLabel="Button Play Pause">
-                                <rect key="frame" x="132" y="632" width="150" height="150"/>
+                                <rect key="frame" x="137.66666666666666" y="608" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="RA7-GE-gAT"/>
-                                    <constraint firstAttribute="width" constant="150" id="eHM-Sn-wDj"/>
+                                    <constraint firstAttribute="height" constant="100" id="RA7-GE-gAT"/>
+                                    <constraint firstAttribute="width" constant="100" id="eHM-Sn-wDj"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="play"/>
                                 <connections>
@@ -28,10 +28,10 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="djg-5v-cRr" userLabel="Progress song slider">
-                                <rect key="frame" x="28" y="559" width="358" height="34"/>
+                                <rect key="frame" x="28" y="456" width="319" height="113"/>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5F-Xi-ghF" userLabel="Button Repeat">
-                                <rect key="frame" x="344" y="469" width="50" height="50"/>
+                                <rect key="frame" x="305" y="366" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Gcp-XL-yOy"/>
                                     <constraint firstAttribute="height" constant="50" id="aZ3-U4-2Jt"/>
@@ -39,7 +39,7 @@
                                 <state key="normal" title="Button" image="repeat"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsd-vv-BIS" userLabel="Artist Name">
-                                <rect key="frame" x="100" y="437" width="41.666666666666657" height="20"/>
+                                <rect key="frame" x="100" y="414" width="41.666666666666657" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="tcy-HI-W2M"/>
                                 </constraints>
@@ -48,21 +48,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cen-AH-Chf">
-                                <rect key="frame" x="20" y="44" width="374" height="315"/>
+                                <rect key="frame" x="20" y="54" width="335" height="282"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cen-AH-Chf" secondAttribute="height" multiplier="374:315" id="h1w-pa-9AL"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0J-r2-Vd5" userLabel="Button list">
-                                <rect key="frame" x="322" y="790" width="75" height="75"/>
+                                <rect key="frame" x="308" y="741" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="0YG-B3-cyE"/>
-                                    <constraint firstAttribute="height" constant="75" id="rs8-tR-XaS"/>
+                                    <constraint firstAttribute="width" constant="50" id="0YG-B3-cyE"/>
+                                    <constraint firstAttribute="height" constant="50" id="rs8-tR-XaS"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="playlist"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7G-HE-ghJ" userLabel="progress timer">
-                                <rect key="frame" x="20" y="597" width="42" height="20"/>
+                                <rect key="frame" x="20" y="548" width="42" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="BvV-SA-Te4"/>
                                 </constraints>
@@ -71,23 +71,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpE-xx-eYJ" userLabel="Button Previous">
-                                <rect key="frame" x="17" y="667" width="75" height="75"/>
+                                <rect key="frame" x="17" y="618" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="AkM-w0-WfP"/>
-                                    <constraint firstAttribute="width" constant="75" id="gh6-Us-Kc2"/>
+                                    <constraint firstAttribute="height" constant="50" id="AkM-w0-WfP"/>
+                                    <constraint firstAttribute="width" constant="50" id="gh6-Us-Kc2"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="previous"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNg-B4-n64" userLabel="Button Next">
-                                <rect key="frame" x="322" y="667" width="75" height="75"/>
+                                <rect key="frame" x="308" y="618" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="JuS-fS-cBf"/>
-                                    <constraint firstAttribute="width" constant="75" id="ngQ-d7-SET"/>
+                                    <constraint firstAttribute="height" constant="50" id="JuS-fS-cBf"/>
+                                    <constraint firstAttribute="width" constant="50" id="ngQ-d7-SET"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="next"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LP2-Uz-wQS" userLabel="Button Shuffle">
-                                <rect key="frame" x="20" y="469" width="50" height="50"/>
+                                <rect key="frame" x="20" y="366" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5ax-px-mzW"/>
                                     <constraint firstAttribute="width" constant="50" id="VYp-Hb-gqK"/>
@@ -95,7 +95,7 @@
                                 <state key="normal" title="Button" image="shuffle"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZu-kH-9HD" userLabel="total lenght spend">
-                                <rect key="frame" x="352" y="597" width="42" height="20"/>
+                                <rect key="frame" x="313" y="548" width="42" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="bCs-h8-GYy"/>
                                 </constraints>
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI9-UL-DZr" userLabel="Song Name">
-                                <rect key="frame" x="186" y="394" width="42" height="20"/>
+                                <rect key="frame" x="167" y="371" width="41" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="pq4-nH-zMf"/>
                                 </constraints>
@@ -113,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHp-pV-otM" userLabel="Album Name">
-                                <rect key="frame" x="272.66666666666674" y="437" width="41.333333333333314" height="20"/>
+                                <rect key="frame" x="233.66666666666666" y="414" width="41.333333333333343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="83D-1q-1tH"/>
                                 </constraints>
@@ -126,19 +126,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BNp-Qb-jhf" firstAttribute="top" secondItem="djg-5v-cRr" secondAttribute="bottom" constant="40" id="5em-Vx-LpN"/>
-                            <constraint firstItem="djg-5v-cRr" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="200" id="9nl-gq-WcM"/>
+                            <constraint firstItem="djg-5v-cRr" firstAttribute="top" relation="lessThanOrEqual" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="200" id="9nl-gq-WcM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W5F-Xi-ghF" secondAttribute="trailing" constant="20" id="Cck-IG-dQa"/>
                             <constraint firstItem="SHp-pV-otM" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="78" id="D7K-ns-RAv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NZu-kH-9HD" secondAttribute="trailing" constant="20" id="E70-ie-GrH"/>
                             <constraint firstItem="uI9-UL-DZr" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="35" id="FqP-VO-aM8"/>
                             <constraint firstItem="fpE-xx-eYJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="Hpt-2t-pv3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WNg-B4-n64" secondAttribute="bottom" constant="120" id="KPg-ni-GP0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fpE-xx-eYJ" secondAttribute="bottom" constant="120" id="LD7-we-vSE"/>
+                            <constraint firstItem="LP2-Uz-wQS" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="30" id="IW9-MX-1S2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WNg-B4-n64" secondAttribute="bottom" constant="110" id="KPg-ni-GP0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fpE-xx-eYJ" secondAttribute="bottom" constant="110" id="LD7-we-vSE"/>
                             <constraint firstItem="fpE-xx-eYJ" firstAttribute="top" secondItem="v7G-HE-ghJ" secondAttribute="bottom" constant="50" id="MI0-qd-1Qc"/>
-                            <constraint firstItem="cen-AH-Chf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NM6-lr-iic"/>
+                            <constraint firstItem="cen-AH-Chf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="NM6-lr-iic"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cen-AH-Chf" secondAttribute="trailing" constant="20" id="O56-sM-uE1"/>
-                            <constraint firstItem="djg-5v-cRr" firstAttribute="top" secondItem="LP2-Uz-wQS" secondAttribute="bottom" constant="40" id="PoZ-xG-g2h"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uI9-UL-DZr" secondAttribute="trailing" constant="186" id="XXe-Rw-BOa"/>
                             <constraint firstItem="gsd-vv-BIS" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="78" id="Y8n-PQ-5Rw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SHp-pV-otM" secondAttribute="trailing" constant="100" id="acV-Ss-uOb"/>
                             <constraint firstItem="uI9-UL-DZr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bId-Ar-Ma0"/>
@@ -146,15 +145,16 @@
                             <constraint firstItem="djg-5v-cRr" firstAttribute="top" secondItem="W5F-Xi-ghF" secondAttribute="bottom" constant="40" id="dy2-OU-qQo"/>
                             <constraint firstItem="v7G-HE-ghJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="iWF-rY-HbU"/>
                             <constraint firstItem="WNg-B4-n64" firstAttribute="top" secondItem="NZu-kH-9HD" secondAttribute="bottom" constant="50" id="j6O-lA-NpP"/>
+                            <constraint firstItem="cen-AH-Chf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="kDw-gZ-rDH"/>
+                            <constraint firstItem="W5F-Xi-ghF" firstAttribute="top" secondItem="cen-AH-Chf" secondAttribute="bottom" constant="30" id="kbt-la-AjX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L0J-r2-Vd5" secondAttribute="trailing" constant="17" id="lOb-R5-4Q8"/>
-                            <constraint firstAttribute="bottom" secondItem="L0J-r2-Vd5" secondAttribute="bottom" constant="31" id="omE-qT-lML"/>
+                            <constraint firstAttribute="bottom" secondItem="L0J-r2-Vd5" secondAttribute="bottom" constant="21" id="omE-qT-lML"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WNg-B4-n64" secondAttribute="trailing" constant="17" id="pgr-Dj-MGL"/>
                             <constraint firstItem="LP2-Uz-wQS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qei-5S-Esf"/>
                             <constraint firstItem="gsd-vv-BIS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="rRJ-cG-6Fe"/>
-                            <constraint firstItem="uI9-UL-DZr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="186" id="smd-ao-9iu"/>
                             <constraint firstItem="BNp-Qb-jhf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xFM-2G-dtl"/>
                             <constraint firstItem="djg-5v-cRr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="yGz-w8-54S"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BNp-Qb-jhf" secondAttribute="bottom" constant="80" id="yhi-Wc-vPU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BNp-Qb-jhf" secondAttribute="bottom" constant="70" id="yhi-Wc-vPU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djg-5v-cRr" secondAttribute="trailing" constant="30" id="zHh-cn-ney"/>
                         </constraints>
                     </view>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="115.84821428571428"/>
+            <point key="canvasLocation" x="137.68115942028987" y="115.7608695652174"/>
         </scene>
     </scenes>
     <resources>
