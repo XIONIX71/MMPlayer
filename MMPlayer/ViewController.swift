@@ -507,23 +507,22 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     
     func updateArtistNameLabel(){
-        let artistName = readArtistNameFromPlist(currentAudioIndex)
-        artistName.text = artistName
+        let artistName2 = readArtistNameFromPlist(currentAudioIndex)
+        artistName.text = artistName2
     }
     func updateAlbumNameLabel(){
-        let albumName = readAlbumNameFromPlist(currentAudioIndex)
-        albumName.text = albumName
+        let albumName2 = readAlbumNameFromPlist(currentAudioIndex)
+        albumName.text = albumName2
     }
     
     func updateSongNameLabel(){
-        let songName = readSongNameFromPlist(currentAudioIndex)
-        songName.text = songName
+        let songName2 = readSongNameFromPlist(currentAudioIndex)
+        songName.text = songName2
     }
     
     func updateCoverImage(){
         let artworkName = readArtworkNameFromPlist(currentAudioIndex)
         coverImage.image = UIImage(named: artworkName)
-        coverImage
     }
 }
 
