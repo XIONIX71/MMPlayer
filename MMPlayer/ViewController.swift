@@ -134,7 +134,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView,willDisplay cell: UITableViewCell,forRowAt indexPath: IndexPath){
         tableView.backgroundColor = UIColor.clear
-        
         let backgroundView = UIView(frame: CGRect.zero)
         backgroundView.backgroundColor = UIColor.clear
         cell.backgroundView = backgroundView
@@ -154,12 +153,8 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         let play = UIImage(named: "play")
         let pause = UIImage(named: "pause")
         playButton.setImage(audioPlayer.isPlaying ? pause : play, for: UIControl.State())
-        
-        //à implémenter
-        //blurView.isHidden = true
-        //animateTableViewToOffScreen()
-        // prepareAudio()
-        // playAudio()
+        prepareAudio()
+        playAudio()
 
     }
     
