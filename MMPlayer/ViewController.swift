@@ -377,7 +377,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func startTimer(){
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlayerViewController.update(_:)), userInfo: nil,repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update(_:)), userInfo: nil,repeats: true)
             timer.fire()
         }
     }
