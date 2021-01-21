@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var shuffleArray = [Int]()
     var timer:Timer!
     var audioLength = 0.0
+    var totalLengthOfAudio = ""
     
     
     @IBOutlet weak var playButton: UIButton!
@@ -39,8 +40,81 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var totalLenghtSpend: UILabel!
     @IBOutlet weak var progressTimer: UILabel!
     @IBOutlet weak var progressSongSlider: UISlider!
+
     
     var isRunning = false
+
+      @IBAction func playSong(_ sender: Any) {
+        
+        let play = UIImage(named: "play")
+        let pause = UIImage(named:"pause")
+        
+        if shuffleState == true{
+            shuffleArray.removeAll()
+        }
+        
+        else if audioPlayer.isPlaying{
+            pauseAudioPlayer()
+        }
+        else{
+            playAudio()
+        }
+        
+        playButton.setImage(audioPlayer.isPlaying ? pause: play, for:UIControl.State())
+    }
+    
+    @IBAction func nextSong(_ sender: Any) {
+        playNextAudio()
+    }
+    
+    
+    @IBAction func previousSong(_ sender: Any) {
+        playPreviousAudio()
+    }
+    
+    
+    @IBAction func changeSliderLocation(_ sender: UISlider) {
+        
+        audioPlayer.currentTime = TimeInterval(sender.value)
+    }
+    
+    @IBAction func shuffleButtonTapped(_ sender: UIButton) {
+        shuffleArray.removeAll()
+        
+        if sender.isSelected == true{
+            sender.isSelected = false
+            shuffleState = false
+            
+            UserDefaults.standard.set(false, forKey: "shuffleState")
+        }
+        else{
+            sender.isSelected = true
+            shuffleState = true
+            
+            UserDefaults.standard.set(true, forKey: "shuffleState")
+        }
+    }
+    
+    @IBAction func repeatButtonTapped(_ sender: UIButton) {
+        if sender.isSelected == true{
+            sender.isSelected = false
+            repeatState = false
+            
+            UserDefaults.standard.set(false, forKey: "repeatState")
+        }
+        else{
+            sender.isSelected = true
+            repeatState = true
+            
+            UserDefaults.standard.set(true, forKey: "repeatState")
+        }
+    }
+
+    func showMediaInfo(){
+        let artistName = readArtistNameFromPlist(currentAudioIndex)
+        let songName = readSongNameFromPlist(currentAudioIndex)
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyArtist : artistName,  MPMediaItemPropertyTitle : songName]
+    }
     
     
     @IBAction func playSong(_ sender: Any) {
@@ -138,17 +212,14 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         artistName.isHidden = false
         totalLenghtSpend.isHidden = false
         progressTimer.isHidden = false
-        progressSongSlider.isHidden = false
-
-        super.viewDidLoad()
-        
+        progressSongSlider.isHidden = false       
       
         retrieveSavedTrackNumber()
         prepareAudio()
         updateLabels()
         assingSliderUI()
         setRepeatAndShuffle()
-        retrievePlayerProgressSliderValue()
+        retrieveprogressSongSliderValue()
     }
 
 
@@ -428,7 +499,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     func startTimer(){
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PlayerViewController.update(_:)), userInfo: nil,repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update(_:)), userInfo: nil,repeats: true)
             timer.fire()
         }
     }
@@ -470,6 +541,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
             audioPlayer.currentTime = 0.0
             progressTimer.text = "00:00:00"
         }
+    }
 
     func calculateTimeFromNSTimeInterval(_ duration:TimeInterval) ->(minute:String, second:String){
         let minute_ = abs(Int((duration/60).truncatingRemainder(dividingBy: 60)))
@@ -533,7 +605,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }   
     
    
-    func assingSliderUI () {
+    func assingSliderUI() {
         let minImage = UIImage(named: "slider-track-fill")
         let maxImage = UIImage(named: "slider-track")
         let thumb = UIImage(named: "thumb")
@@ -550,30 +622,27 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         updateArtistNameLabel()
         updateAlbumNameLabel()
         updateSongNameLabel()
-        updateCoverImage()
-
-        
+        updateCoverImage() 
     }
     
     
     func updateArtistNameLabel(){
-        let artistName = readArtistNameFromPlist(currentAudioIndex)
-        artistName.text = artistName
+        let artistName2 = readArtistNameFromPlist(currentAudioIndex)
+        artistName.text = artistName2
     }
     func updateAlbumNameLabel(){
-        let albumName = readAlbumNameFromPlist(currentAudioIndex)
-        albumName.text = albumName
+        let albumName2 = readAlbumNameFromPlist(currentAudioIndex)
+        albumName.text = albumName2
     }
     
     func updateSongNameLabel(){
-        let songName = readSongNameFromPlist(currentAudioIndex)
-        songName.text = songName
+        let songName2 = readSongNameFromPlist(currentAudioIndex)
+        songName.text = songName2
     }
     
     func updateCoverImage(){
-        let artworkName = readArtworkNameFromPlist(currentAudioIndex)
-        coverImage.image = UIImage(named: artworkName)
-        coverImage
+        let coverImage = readArtworkNameFromPlist(currentAudioIndex)
+        coverImage.image = UIImage(named: coverImage)
     }
 }
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>artistName</key>
+		<string>Katy Perry</string>
+		<key>albumName</key>
+		<string>Daisies</string>
+		<key>songName</key>
+		<string>Daisies</string>
+		<key>coverImage</key>
+		<string>Daisies.jpg</string>
+	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Katy Perry</string>
+		<key>albumName</key>
+		<string>Small Talk</string>
+		<key>songName</key>
+		<string>Small Talk</string>
+		<key>coverImage</key>
+		<string>SmallTalk.jpg</string>
+	</dict>
+	<dict>
+		<key>artistName</key>
+		<string>Katy Perry</string>
+		<key>albumName</key>
+		<string>Smile</string>
+		<key>songName</key>
+		<string>Smile</string>
+		<key>coverImage</key>
+		<string>Smile.jpg</string>
+	</dict>
+</array>
+</plist>
