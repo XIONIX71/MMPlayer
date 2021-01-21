@@ -90,10 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         artistName.isHidden = false
         totalLenghtSpend.isHidden = false
         progressTimer.isHidden = false
-        progressSongSlider.isHidden = false
-
-        super.viewDidLoad()
-        
+        progressSongSlider.isHidden = false       
       
         retrieveSavedTrackNumber()
         prepareAudio()
