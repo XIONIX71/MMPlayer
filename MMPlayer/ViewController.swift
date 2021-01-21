@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     var repeatState = false
     var shuffleArray = [Int]()
     var timer:Timer!
+    var audioLength = 0.0
     
     
     @IBOutlet weak var playButton: UIButton!
@@ -87,13 +88,13 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
 
         super.viewDidLoad()
         
-       //Fonction à coder plus tard pour les parametrage de la lecture audio mais aussi pour regler le numero du son en cours
-        // retrieveSavedTrackNumber()
-        // prepareAudio()
-        // updateLabels()
-        // assingSliderUI()
-        // setRepeatAndShuffle()
-        // retrievePlayerProgressSliderValue()
+      
+        retrieveSavedTrackNumber()
+        prepareAudio()
+        updateLabels()
+        assingSliderUI()
+        setRepeatAndShuffle()
+        retrievePlayerProgressSliderValue()
     }
 
 
@@ -314,7 +315,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         UIApplication.shared.beginReceivingRemoteControlEvents()
         audioPlayer = try? AVAudioPlayer(contentsOf: currentAudioPath)
         audioPlayer.delegate = self
-//        audioPlayer
         audioLength = audioPlayer.duration
         progressSongSlider.maximumValue = CFloat(audioPlayer.duration)
         progressSongSlider.minimumValue = 0.0
