@@ -419,6 +419,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
             audioPlayer.currentTime = 0.0
             progressTimer.text = "00:00:00"
         }
+    }
 
     func calculateTimeFromNSTimeInterval(_ duration:TimeInterval) ->(minute:String, second:String){
         let minute_ = abs(Int((duration/60).truncatingRemainder(dividingBy: 60)))
