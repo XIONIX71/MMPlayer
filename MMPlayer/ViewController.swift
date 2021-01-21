@@ -388,6 +388,141 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         
     }
     
+     @objc func update(_ timer: Timer){
+        if !audioPlayer.isPlaying{
+            return
+        }
+        let time = calculateTimeFromNSTimeInterval(audioPlayer.currentTime)
+        progressTimer.text  = "\(time.minute):\(time.second)"
+        progressSongSlider.value = CFloat(audioPlayer.currentTime)
+        UserDefaults.standard.set(progressSongSlider.value , forKey: "progressSongSliderValue")
+
+        
+    }
+
+    func retrieveprogressSongSliderValue(){
+        let progressSongSliderValue =  UserDefaults.standard.float(forKey: "progressSongSliderValue")
+        if progressSongSliderValue != 0 {
+            progressSongSlider.value  = progressSongSliderValue
+            audioPlayer.currentTime = TimeInterval(progressSongSliderValue)
+            
+            let time = calculateTimeFromNSTimeInterval(audioPlayer.currentTime)
+            progressTimer.text  = "\(time.minute):\(time.second)"
+            progressSongSlider.value = CFloat(audioPlayer.currentTime)
+            
+        }
+        else{
+            progressSongSlider.value = 0.0
+            audioPlayer.currentTime = 0.0
+            progressTimer.text = "00:00:00"
+        }
+
+    func calculateTimeFromNSTimeInterval(_ duration:TimeInterval) ->(minute:String, second:String){
+        let minute_ = abs(Int((duration/60).truncatingRemainder(dividingBy: 60)))
+        let second_ = abs(Int(duration.truncatingRemainder(dividingBy: 60)))
+        let minute = minute_ > 9 ? "\(minute_)" : "0\(minute_)"
+        let second = second_ > 9 ? "\(second_)" : "0\(second_)"
+        return (minute,second)
+    }
     
- 
+
+    
+    func showTotalSongLength(){
+        calculateSongLength()
+        totalLenghtSpend.text = totalLengthOfAudio
+    }
+    
+    
+    func calculateSongLength(){
+        let time = calculateTimeFromNSTimeInterval(audioLength)
+        totalLengthOfAudio = "\(time.minute):\(time.second)"
+    }
+    
+    
+    //Read plist file and creates an array of dictionary
+    func readFromPlist(){
+        let path = Bundle.main.path(forResource: "list", ofType: "plist")
+        audioList = NSArray(contentsOfFile:path!)
+    }
+    
+    func readArtistNameFromPlist(_ indexNumber: Int) -> String {
+        readFromPlist()
+        var infoDict = NSDictionary();
+        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+        let artistName = infoDict.value(forKey: "artistName") as! String
+        return artistName
+    }
+    
+    func readAlbumNameFromPlist(_ indexNumber: Int) -> String {
+        readFromPlist()
+        var infoDict = NSDictionary();
+        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+        let albumName = infoDict.value(forKey: "albumName") as! String
+        return albumName
+    }
+
+    
+    func readSongNameFromPlist(_ indexNumber: Int) -> String {
+        readFromPlist()
+        var songNameDict = NSDictionary();
+        songNameDict = audioList.object(at: indexNumber) as! NSDictionary
+        let songName = songNameDict.value(forKey: "songName") as! String
+        return songName
+    }
+    
+    func readArtworkNameFromPlist(_ indexNumber: Int) -> String {
+        readFromPlist()
+        var infoDict = NSDictionary();
+        infoDict = audioList.object(at: indexNumber) as! NSDictionary
+        let artworkName = infoDict.value(forKey: "coverImage") as! String
+        return artworkName
+    }   
+    
+   
+    func assingSliderUI () {
+        let minImage = UIImage(named: "slider-track-fill")
+        let maxImage = UIImage(named: "slider-track")
+        let thumb = UIImage(named: "thumb")
+
+        progressSongSlider.setMinimumTrackImage(minImage, for: UIControl.State())
+        progressSongSlider.setMaximumTrackImage(maxImage, for: UIControl.State())
+        progressSongSlider.setThumbImage(thumb, for: UIControl.State())
+
+    
+    }
+
+    
+    func updateLabels(){
+        updateArtistNameLabel()
+        updateAlbumNameLabel()
+        updateSongNameLabel()
+        updateCoverImage()
+
+        
+    }
+    
+    
+    func updateArtistNameLabel(){
+        let artistName = readArtistNameFromPlist(currentAudioIndex)
+        artistName.text = artistName
+    }
+    func updateAlbumNameLabel(){
+        let albumName = readAlbumNameFromPlist(currentAudioIndex)
+        albumName.text = albumName
+    }
+    
+    func updateSongNameLabel(){
+        let songName = readSongNameFromPlist(currentAudioIndex)
+        songName.text = songName
+    }
+    
+    func updateCoverImage(){
+        let artworkName = readArtworkNameFromPlist(currentAudioIndex)
+        coverImage.image = UIImage(named: artworkName)
+        coverImage
+    }
+}
+
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
 }
