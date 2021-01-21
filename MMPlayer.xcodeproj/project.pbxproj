@@ -13,6 +13,13 @@
 		44D7474E25A888D8003A5B56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D7474C25A888D8003A5B56 /* Main.storyboard */; };
 		44D7475025A888D9003A5B56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D7474F25A888D9003A5B56 /* Assets.xcassets */; };
 		44D7475325A888D9003A5B56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D7475125A888D9003A5B56 /* LaunchScreen.storyboard */; };
+		480A3F6A25B997B6003AA06B /* list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F6925B997B6003AA06B /* list.plist */; };
+		480A3F6E25B9982E003AA06B /* Daisies.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F6C25B9982E003AA06B /* Daisies.mp3 */; };
+		480A3F6F25B9982E003AA06B /* Daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F6D25B9982E003AA06B /* Daisies.jpg */; };
+		480A3F7325B99843003AA06B /* SmallTalk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F7125B99843003AA06B /* SmallTalk.jpg */; };
+		480A3F7425B99843003AA06B /* Small Talk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F7225B99843003AA06B /* Small Talk.mp3 */; };
+		480A3F7825B99855003AA06B /* Smile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F7625B99855003AA06B /* Smile.mp3 */; };
+		480A3F7925B99855003AA06B /* Smile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 480A3F7725B99855003AA06B /* Smile.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		44D7474F25A888D9003A5B56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D7475225A888D9003A5B56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D7475425A888D9003A5B56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		480A3F6925B997B6003AA06B /* list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = list.plist; sourceTree = "<group>"; };
+		480A3F6C25B9982E003AA06B /* Daisies.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Daisies.mp3; sourceTree = "<group>"; };
+		480A3F6D25B9982E003AA06B /* Daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Daisies.jpg; sourceTree = "<group>"; };
+		480A3F7125B99843003AA06B /* SmallTalk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SmallTalk.jpg; sourceTree = "<group>"; };
+		480A3F7225B99843003AA06B /* Small Talk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Small Talk.mp3"; sourceTree = "<group>"; };
+		480A3F7625B99855003AA06B /* Smile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Smile.mp3; sourceTree = "<group>"; };
+		480A3F7725B99855003AA06B /* Smile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Smile.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,13 @@
 				44D7474625A888D8003A5B56 /* AppDelegate.swift */,
 				44D7474825A888D8003A5B56 /* SceneDelegate.swift */,
 				44D7474A25A888D8003A5B56 /* ViewController.swift */,
+				480A3F6925B997B6003AA06B /* list.plist */,
+				480A3F7225B99843003AA06B /* Small Talk.mp3 */,
+				480A3F7125B99843003AA06B /* SmallTalk.jpg */,
+				480A3F6D25B9982E003AA06B /* Daisies.jpg */,
+				480A3F7725B99855003AA06B /* Smile.jpg */,
+				480A3F7625B99855003AA06B /* Smile.mp3 */,
+				480A3F6C25B9982E003AA06B /* Daisies.mp3 */,
 				44D7474C25A888D8003A5B56 /* Main.storyboard */,
 				44D7474F25A888D9003A5B56 /* Assets.xcassets */,
 				44D7475125A888D9003A5B56 /* LaunchScreen.storyboard */,
@@ -124,9 +145,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480A3F6A25B997B6003AA06B /* list.plist in Resources */,
+				480A3F7425B99843003AA06B /* Small Talk.mp3 in Resources */,
 				44D7475325A888D9003A5B56 /* LaunchScreen.storyboard in Resources */,
+				480A3F6F25B9982E003AA06B /* Daisies.jpg in Resources */,
+				480A3F7925B99855003AA06B /* Smile.jpg in Resources */,
 				44D7475025A888D9003A5B56 /* Assets.xcassets in Resources */,
+				480A3F6E25B9982E003AA06B /* Daisies.mp3 in Resources */,
 				44D7474E25A888D8003A5B56 /* Main.storyboard in Resources */,
+				480A3F7325B99843003AA06B /* SmallTalk.jpg in Resources */,
+				480A3F7825B99855003AA06B /* Smile.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
