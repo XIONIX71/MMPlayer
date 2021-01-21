@@ -42,19 +42,73 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     var isRunning = false
     
-    @IBAction func startMusic(_ sender: Any) {
-        if !isRunning{
-            playButton.setImage(UIImage(named: "play"), for: .normal)
-            
-            
-            isRunning = true
+    
+    @IBAction func playSong(_ sender: Any) {
+        
+        let play = UIImage(named: "play")
+        let pause = UIImage(named:"pause")
+        
+        if shuffleState == true{
+            shuffleArray.removeAll()
+        }
+        
+        else if audioPlayer.isPlaying{
+            pauseAudioPlayer()
         }
         else{
-            playButton.setImage(UIImage(named: "pause"), for: .normal)
+            playAudio()
+        }
+        
+        playButton.setImage(audioPlayer.isPlaying ? pause: play, for:UIControl.State())
+    }
+    
+    @IBAction func nextSong(_ sender: Any) {
+        playNextAudio()
+    }
+    
+    
+    @IBAction func previousSong(_ sender: Any) {
+        playPreviousAudio()
+    }
+    
+    
+    @IBAction func changeSliderLocation(_ sender: UISlider) {
+        
+        audioPlayer.currentTime = TimeInterval(sender.value)
+    }
+    
+    @IBAction func shuffleButtonTapped(_ sender: UIButton) {
+        shuffleArray.removeAll()
+        
+        if sender.isSelected == true{
+            sender.isSelected = false
+            shuffleState = false
             
-            isRunning = false
+            UserDefaults.standard.set(false, forKey: "shuffleState")
+        }
+        else{
+            sender.isSelected = true
+            shuffleState = true
+            
+            UserDefaults.standard.set(true, forKey: "shuffleState")
         }
     }
+    
+    @IBAction func repeatButtonTapped(_ sender: UIButton) {
+        if sender.isSelected == true{
+            sender.isSelected = false
+            repeatState = false
+            
+            UserDefaults.standard.set(false, forKey: "repeatState")
+        }
+        else{
+            sender.isSelected = true
+            repeatState = true
+            
+            UserDefaults.standard.set(true, forKey: "repeatState")
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
