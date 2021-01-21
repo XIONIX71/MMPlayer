@@ -94,6 +94,20 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         }
     }
     
+    @IBAction func repeatButtonTapped(_ sender: UIButton) {
+        if sender.isSelected == true{
+            sender.isSelected = false
+            repeatState = false
+            
+            UserDefaults.standard.set(false, forKey: "repeatState")
+        }
+        else{
+            sender.isSelected = true
+            repeatState = true
+            
+            UserDefaults.standard.set(true, forKey: "repeatState")
+        }
+    }
     
     
     override func viewDidLoad() {
