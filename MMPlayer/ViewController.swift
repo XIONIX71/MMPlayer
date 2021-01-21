@@ -204,12 +204,78 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        coverImage.setRounded()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    // MARK:- AVAudioPlayer
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool){
+        if flag == true {
+            
+            if shuffleState == false && repeatState == false {
+                // do nothing
+                playButton.setImage( UIImage(named: "play"), for: UIControl.State())
+                return
+            
+            } else if shuffleState == false && repeatState == true {
+            //repeat same song
+                prepareAudio()
+                playAudio()
+            
+            } else if shuffleState == true && repeatState == false {
+            //shuffle songs but do not repeat at the end
+            //Shuffle logique, mettre le son courant dans un tableau et le son d'après viendra aleatoirement 
+               shuffleArray.append(currentAudioIndex)
+                if shuffleArray.count >= audioList.count {
+                playButton.setImage( UIImage(named: "play"), for: UIControl.State())
+                return
+                
+                }
+                
+                
+                var randomIndex = 0
+                var newIndex = false
+                while newIndex == false {
+                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    if shuffleArray.contains(randomIndex) {
+                        newIndex = false
+                    }else{
+                        newIndex = true
+                    }
+                }
+                currentAudioIndex = randomIndex
+                prepareAudio()
+                playAudio()
+            
+            } else if shuffleState == true && repeatState == true {
+                //shuffle song endlessly
+                shuffleArray.append(currentAudioIndex)
+                if shuffleArray.count >= audioList.count {
+                    shuffleArray.removeAll()
+                }
+                
+                
+                var randomIndex = 0
+                var newIndex = false
+                while newIndex == false {
+                    randomIndex =  Int(arc4random_uniform(UInt32(audioList.count)))
+                    if shuffleArray.contains(randomIndex) {
+                        newIndex = false
+                    }else{
+                        newIndex = true
+                    }
+                }
+                currentAudioIndex = randomIndex
+                prepareAudio()
+                playAudio()
+                
+            
+            }
+            
+        }
     }
     
     
