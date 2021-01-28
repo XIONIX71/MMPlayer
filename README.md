@@ -3,6 +3,8 @@ Nous avons développé cette application en Swift 5.0, compatible avec la versio
 
 Dans le cadre des cours ITC44, nous avons travailler en binôme : Lucas MASSOT et Sam MAROUN en 4ème Année Informatique et Electronique Option SQR.
 
+![View](View.png)
+
 ## Présentation Générale
 Cette application est un lecteur de mp3 qui permet de réaliser les fonctionnalités suivantes:
 
