@@ -120,7 +120,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         playButton.isEnabled = true
         playButton.isHidden = false
@@ -249,15 +248,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     
-    // Á garder pour plus tard
-    // override func viewWillAppear(_ animated: Bool) {
-    //     super.viewWillAppear(animated)
-    //     self.tableViewContainerTopConstrain.constant = 1000.0
-    //     self.tableViewContainer.layoutIfNeeded()
-    //     blurView.isHidden = true
-    // }
-    
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
     }
@@ -272,7 +262,6 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         if flag == true {
             
             if shuffleState == false && repeatState == false {
-                // do nothing
                 playButton.setImage( UIImage(named: "play"), for: UIControl.State())
                 return
             
@@ -332,7 +321,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         }
     }
 
-    //Sets audio file URL
+    //Mise en place du chemin vers le fichier 
     func setCurrentAudioPath(){
         currentAudio = readSongNameFromPlist(currentAudioIndex)
         currentAudioPath = URL(fileURLWithPath: Bundle.main.path(forResource: currentAudio, ofType: "mp3")!)
@@ -499,7 +488,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
     
     
-    //Read plist file and creates an array of dictionary
+    //Lit le fichier .plist et créé un tableau du dictionnaire de piste musicale.
     func readFromPlist(){
         let path = Bundle.main.path(forResource: "list", ofType: "plist")
         audioList = NSArray(contentsOfFile:path!)
